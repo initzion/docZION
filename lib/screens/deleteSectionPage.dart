@@ -26,7 +26,7 @@ class DeleteSectionState extends State {
       backgroundColor: Colors.blueAccent,
       appBar: AppBar(
         title: Text(
-          "Bölüm Silme Ekranı",
+          "Section Deletion Screen",
           style: TextStyle(fontSize: 25.0, fontWeight: FontWeight.bold),
         ),
       ),
@@ -43,7 +43,7 @@ class DeleteSectionState extends State {
                     ),
                     Container(
                       child: Text(
-                        "UYARI!",
+                        "WARNING!",
                         style: TextStyle(
                             fontSize: 50.0,
                             fontWeight: FontWeight.bold,
@@ -52,7 +52,7 @@ class DeleteSectionState extends State {
                     ),
                     Container(
                       child: Text(
-                        "Bir bölüm sildiğinizde, o bölümde çalışan doktorları ve o doktorların randevularını da silmiş olacaksınız.",
+                        "When you delete a department, you will also delete the doctors working in that department and the appointments of those doctors.",
                         style: TextStyle(
                             fontWeight: FontWeight.bold, fontSize: 20.0),
                       ),
@@ -61,7 +61,7 @@ class DeleteSectionState extends State {
                       height: 13.0,
                     ),
                     RaisedButton(
-                      child: Text("Hastane Seçmek İçin Tıkla"),
+                      child: Text("Click to Choose Hospital"),
                       onPressed: () {
                         bolumSecildiMi = false;
                         hospitalNavigator(BuildHospitalList());
@@ -75,13 +75,13 @@ class DeleteSectionState extends State {
                       height: 16.0,
                     ),
                     RaisedButton(
-                      child: Text("Bölüm Seçmek İçin Tıkla"),
+                      child: Text("Click to Choose Section"),
                       onPressed: () {
                         if (hastaneSecildiMi) {
                           sectionNavigator(BuildSectionList(hastane));
                         } else {
                           alrtHospital(
-                              context, "Hastane seçmeden bölüm seçemezsiniz");
+                              context, "You cannot choose a department without choosing a hospital");
                         }
                       },
                     ),
@@ -105,7 +105,7 @@ class DeleteSectionState extends State {
 
   void alrtHospital(BuildContext context, String message) {
     var alertDoctor = AlertDialog(
-      title: Text("Uyarı!"),
+      title: Text("Warning!"),
       content: Text(message),
     );
 
@@ -154,7 +154,7 @@ class DeleteSectionState extends State {
         child: Row(
           children: <Widget>[
             Text(
-              "Seçilen Hastane : ",
+              "Selected Hospital: ",
               style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold),
             ),
             Opacity(
@@ -188,7 +188,7 @@ class DeleteSectionState extends State {
         child: Row(
           children: <Widget>[
             Text(
-              "Seçilen Bölüm : ",
+              "Selected Section: ",
               style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold),
             ),
             Opacity(
@@ -210,7 +210,7 @@ class DeleteSectionState extends State {
   _silButonu() {
     return RaisedButton(
       child: Text(
-        "Seçili Bölümü Sil",
+        "Delete Selected Section",
         textDirection: TextDirection.ltr,
         style: TextStyle(fontSize: 20.0),
       ),
@@ -218,7 +218,7 @@ class DeleteSectionState extends State {
         if (hastaneSecildiMi && bolumSecildiMi) {
           alrtBolumSil(context);
         } else {
-          alrtHospital(context, "Eksik bilgi var");
+          alrtHospital(context, "There is missing information");
         }
       },
     );
@@ -227,12 +227,12 @@ class DeleteSectionState extends State {
   void alrtBolumSil(BuildContext context) {
     var alrtRandevu = AlertDialog(
       title: Text(
-        " Bölüm ile birlikte bölüme kayıtlı bütün doktorlar ve randevularıda silinecektir. Devam etmek istiyor musunuz?",
+        "Along with the department, all doctors and appointments registered in the department will also be deleted. Do you want to continue?",
         style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
       ),
       actions: <Widget>[
         FlatButton(
-          child: Text("Hayır"),
+          child: Text("No"),
           onPressed: () {
             Navigator.pop(context);
           },
@@ -242,7 +242,7 @@ class DeleteSectionState extends State {
         ),
         FlatButton(
           child: Text(
-            "Evet",
+            "Yeah",
             textAlign: TextAlign.center,
           ),
           onPressed: () {
