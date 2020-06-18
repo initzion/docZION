@@ -31,7 +31,7 @@ class DeleteDoctorState extends State {
       backgroundColor: Colors.blueAccent,
       appBar: AppBar(
         title: Text(
-          "Doktor Silme Ekranı",
+          "Doctor Delete Screen",
           style: TextStyle(fontSize: 25.0, fontWeight: FontWeight.bold),
         ),
       ),
@@ -44,7 +44,7 @@ class DeleteDoctorState extends State {
                 child: Column(
                   children: <Widget>[
                     RaisedButton(
-                      child: Text("Hastane Seçmek İçin Tıkla"),
+                      child: Text("Click to Choose Hospital"),
                       onPressed: () {
                         bolumSecildiMi = false;
                         doktorSecildiMi = false;
@@ -59,14 +59,14 @@ class DeleteDoctorState extends State {
                       height: 16.0,
                     ),
                     RaisedButton(
-                      child: Text("Bölüm Seçmek İçin Tıkla"),
+                      child: Text("Click to Choose Section"),
                       onPressed: () {
                         if (hastaneSecildiMi) {
                           doktorSecildiMi = false;
                           sectionNavigator(BuildSectionList(hastane));
                         } else {
                           alrtHospital(
-                              context, "Hastane seçmeden bölüm seçemezsiniz");
+                              context, "You cannot choose a department without choosing a hospital");
                         }
                       },
                     ),
@@ -78,13 +78,13 @@ class DeleteDoctorState extends State {
                       height: 16.0,
                     ),
                     RaisedButton(
-                      child: Text("Doktor Seçmek İçin Tıkla"),
+                      child: Text("Click to Choose a Doctor"),
                       onPressed: () {
                         if (hastaneSecildiMi && bolumSecildiMi) {
                           doctorNavigator(BuildDoctorList(section, hastane));
                         } else {
                           alrtHospital(context,
-                              "Hastane ve bölüm seçmeden doktor seçemezsiniz");
+                              "You cannot choose a doctor without choosing a hospital or department");
                         }
                       },
                     ),
@@ -157,7 +157,7 @@ class DeleteDoctorState extends State {
         child: Row(
           children: <Widget>[
             Text(
-              "Seçilen Hastane : ",
+              "Selected Hospital : ",
               style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold),
             ),
             Opacity(
@@ -191,7 +191,7 @@ class DeleteDoctorState extends State {
         child: Row(
           children: <Widget>[
             Text(
-              "Seçilen Bölüm : ",
+              "Selected Section: ",
               style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold),
             ),
             Opacity(
@@ -237,7 +237,7 @@ class DeleteDoctorState extends State {
         child: Row(
           children: <Widget>[
             Text(
-              "Seçilen Doktor : ",
+              "Selected Doctor : ",
               style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold),
             ),
             Opacity(
@@ -258,7 +258,7 @@ class DeleteDoctorState extends State {
     return Container(
       child: RaisedButton(
         child: Text(
-          "Seçili Doktoru Sil",
+          "Delete Selected Doctor",
           style: TextStyle(fontSize: 20.0),
         ),
         onPressed: () {
@@ -266,7 +266,7 @@ class DeleteDoctorState extends State {
             DelService().deleteDoctorbyTCKN(doktor);
             Navigator.pop(context, true);
           } else {
-            alrtHospital(context, "Eksik bilgi var");
+            alrtHospital(context, "There is missing information");
           }
         },
       ),
