@@ -42,7 +42,7 @@ class MakeAppointmentState extends State<MakeAppointment> {
   String textMessage = " ";
 
   var randevuTarihi;
-  var raisedButtonText = "Tıkla ve Seç";
+  var raisedButtonText = "Click and Select";
 
   var saatTarihBirlesim;
 
@@ -53,7 +53,7 @@ class MakeAppointmentState extends State<MakeAppointment> {
     return Scaffold(
         appBar: AppBar(
           title: Text(
-            "Randevu Al",
+            "Make an appointment",
             style: TextStyle(fontSize: 25.0, fontWeight: FontWeight.bold),
           ),
         ),
@@ -66,7 +66,7 @@ class MakeAppointmentState extends State<MakeAppointment> {
                   child: Column(
                     children: <Widget>[
                       RaisedButton(
-                        child: Text("Hastane Seçmek İçin Tıkla"),
+                        child: Text("Click to Choose Hospital"),
                         onPressed: () {
                           bolumSecildiMi = false;
                           doktorSecildiMi = false;
@@ -81,7 +81,7 @@ class MakeAppointmentState extends State<MakeAppointment> {
                         height: 30.0,
                       ),
                       RaisedButton(
-                        child: Text("Bölüm Seçmek İçin Tıkla"),
+                        child: Text("Click to Choose Section"),
                         onPressed: () {
                           
                           if (hastaneSecildiMi) {
@@ -91,7 +91,7 @@ class MakeAppointmentState extends State<MakeAppointment> {
                             sectionNavigator(BuildSectionList(hastane));
                           } else {
                             alrtHospital(
-                                context, "Hastane seçmeden bölüm seçemezsiniz");
+                                context, "You cannot choose a department without choosing a hospital");
                           }
                         },
                       ),
@@ -103,13 +103,13 @@ class MakeAppointmentState extends State<MakeAppointment> {
                         height: 30.0,
                       ),
                       RaisedButton(
-                        child: Text("Doktor Seçmek İçin Tıkla"),
+                        child: Text("Click to Choose a Doctor"),
                         onPressed: () {
                           if (hastaneSecildiMi && bolumSecildiMi) {
                             doctorNavigator(BuildDoctorList(section, hastane));
                           } else {
                             alrtHospital(context,
-                                "Hastane ve bölüm seçmeden doktor seçemezsiniz");
+                                "You cannot choose a doctor without choosing a hospital or department");
                           }
                         },
                       ),
@@ -125,7 +125,7 @@ class MakeAppointmentState extends State<MakeAppointment> {
                         height: 16.0,
                       ),
                       RaisedButton(
-                        child: Text("Randevu Saati Seçmek İçin Tıkla"),
+                        child: Text("Click to Choose Appointment Time"),
                         onPressed: () {
                           if (randevuTarihi != null &&
                               hastaneSecildiMi &&
@@ -136,7 +136,7 @@ class MakeAppointmentState extends State<MakeAppointment> {
                             tarihSecildiMi = true;
                           } else {
                             alrtHospital(context,
-                                "Yukarıdaki seçimler tamamlanmadan saat seçimine geçilemez");
+                                "Time selection cannot be made until the above selections are completed.");
                           }
                         },
                       ),
@@ -185,7 +185,7 @@ class MakeAppointmentState extends State<MakeAppointment> {
         child: Row(
           children: <Widget>[
             Text(
-              "Seçilen Hastane : ",
+              "Selected Hospital : ",
               style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold),
             ),
             Opacity(
@@ -205,7 +205,7 @@ class MakeAppointmentState extends State<MakeAppointment> {
   void alrtHospital(BuildContext context, String message) {
     var alertDoctor = AlertDialog(
       title: Text(
-        "Uyarı!",
+        "Warning!",
         style: TextStyle(fontWeight: FontWeight.bold),
       ),
       content: Text(message),
@@ -246,7 +246,7 @@ class MakeAppointmentState extends State<MakeAppointment> {
         child: Row(
           children: <Widget>[
             Text(
-              "Seçilen Bölüm : ",
+              "Selected Section : ",
               style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold),
             ),
             Opacity(
@@ -292,7 +292,7 @@ class MakeAppointmentState extends State<MakeAppointment> {
         child: Row(
           children: <Widget>[
             Text(
-              "Seçilen Doktor : ",
+              "Selected Doctor: ",
               style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold),
             ),
             Opacity(
@@ -327,7 +327,7 @@ class MakeAppointmentState extends State<MakeAppointment> {
       child: Row(
         children: <Widget>[
           Text(
-            "Randevu Tarihi: ",
+            "Appointment date: ",
             style: TextStyle(fontSize: 19.0),
           ),
           RaisedButton(
@@ -335,7 +335,7 @@ class MakeAppointmentState extends State<MakeAppointment> {
             onPressed: () {
               _selectDate(context).then((result) => setState(() {
                     if (randevuTarihi == null) {
-                      raisedButtonText = "Tıkla ve Seç";
+                      raisedButtonText = "Click and Select";
                       tarihSecildiMi = false;
                     } else {
                       raisedButtonText =
@@ -365,7 +365,7 @@ class MakeAppointmentState extends State<MakeAppointment> {
         child: Row(
           children: <Widget>[
             Text(
-              "Randevu Tarih ve Saati : ",
+              "Appointment Date and Time : ",
               style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold),
             ),
             Opacity(
@@ -391,7 +391,7 @@ class MakeAppointmentState extends State<MakeAppointment> {
     var alertAppointment = AlertDialog(
         contentPadding: const EdgeInsets.fromLTRB(5.0, 50.0, 5.0, 50.0),
         title: Text(
-          "İşlem Özeti",
+          "Transaction Summary",
           style: TextStyle(fontWeight: FontWeight.bold),
         ),
         content: Container(
@@ -408,7 +408,7 @@ class MakeAppointmentState extends State<MakeAppointment> {
               Container(
                 child: FlatButton(
                   child: Text(
-                    "Tamam",
+                    "OK",
                     style:
                         TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
                   ),
@@ -438,7 +438,7 @@ class MakeAppointmentState extends State<MakeAppointment> {
       var alertAppointment = AlertDialog(
         contentPadding: const EdgeInsets.fromLTRB(5.0, 50.0, 5.0, 50.0),
         title: Text(
-          "Hastanenin Popüler Doktorları",
+          "Popular Doctors of the Hospital",
           style: TextStyle(fontWeight: FontWeight.bold),
         ),
         content: Scaffold(body: _buildStremBuilderForFav(context, hastane)),
@@ -501,7 +501,7 @@ class MakeAppointmentState extends State<MakeAppointment> {
   _buildDoneButton() {
     return Container(
       child: RaisedButton(
-        child: Text("Tamamla"),
+        child: Text("Complete"),
         onPressed: () {
           if (hastaneSecildiMi &&
               bolumSecildiMi &&
@@ -521,7 +521,7 @@ class MakeAppointmentState extends State<MakeAppointment> {
                           ActiveAppointment.fromMap(docs.documents[i].data);
                       if (rand.randevuTarihi.contains(saatTarihBirlesim)) {
                         alrtHospital(context,
-                            "Aynı gün ve saatte 2 farklı doktordan randevunuz olamaz");
+                            "You cannot make an appointment with 2 different doctors on the same day and time");
                         break;
                       } else {
                         control1 = true;
@@ -542,7 +542,7 @@ class MakeAppointmentState extends State<MakeAppointment> {
                           if (rand.randevuTarihi.contains(
                               randevuTarihi.toString().substring(0, 10))) {
                             alrtHospital(context,
-                                "Gün içerisinde aynı doktordan 2 randevunuz olamaz");
+                                "You cannot have 2 appointments from the same doctor during the day");
                             break;
                           } else {
                             alrtAppointment(context);
@@ -557,11 +557,11 @@ class MakeAppointmentState extends State<MakeAppointment> {
                   }
                 });
               } else {
-                alrtHospital(context, "Bu seans dolu");
+                alrtHospital(context, "This session is full");
               }
             });
           } else {
-            alrtHospital(context, "Eksik bilgi var");
+            alrtHospital(context, "There is missing information");
           }
         },
       ),
