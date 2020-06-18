@@ -20,7 +20,7 @@ class AddHospitalState extends State with ValidationMixin {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          "Hastane Ekle",
+          "Add Hospital",
           style: TextStyle(fontSize: 25.0, fontWeight: FontWeight.bold),
         ),
       ),
@@ -51,7 +51,7 @@ class AddHospitalState extends State with ValidationMixin {
     return Container(
       child: TextFormField(
         decoration: InputDecoration(
-            labelText: "Eklenecek Hastane Adı",
+            labelText: "Hospital Name to be Added",
             labelStyle: TextStyle(
                 fontSize: 17.0,
                 fontWeight: FontWeight.bold,
@@ -69,7 +69,7 @@ class AddHospitalState extends State with ValidationMixin {
     return Container(
       child: RaisedButton(
         child: Text(
-          "Tamamla",
+          "Complete",
           style: TextStyle(fontSize: 17.0, fontWeight: FontWeight.bold),
         ),
         onPressed: () {
@@ -82,7 +82,7 @@ class AddHospitalState extends State with ValidationMixin {
               AddService().saveHospital(hastane);
               Navigator.pop(context, true);
             } else {
-              alrtHospital(context, "Aynı isimde hastane ekleyemezsiniz");
+              alrtHospital(context, "You cannot add a hospital with the same name");
             }
           });
         },
@@ -93,7 +93,7 @@ class AddHospitalState extends State with ValidationMixin {
   void alrtHospital(BuildContext context, String message) {
     var alertHospital = AlertDialog(
       title: Text(
-        "Uyarı!",
+        "Warning!",
         style: TextStyle(fontWeight: FontWeight.bold),
       ),
       content: Text(message),
