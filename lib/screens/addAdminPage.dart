@@ -18,7 +18,7 @@ class AddAdminState extends State with ValidationMixin {
       backgroundColor: Colors.blueAccent,
       appBar: AppBar(
         title: Text(
-          "Admin Ekle",
+          "Add Admin",
           style: TextStyle(fontSize: 25.0, fontWeight: FontWeight.bold),
         ),
       ),
@@ -53,7 +53,7 @@ class AddAdminState extends State with ValidationMixin {
   Widget _passwordField() {
     return TextFormField(
       decoration: InputDecoration(
-          labelText: "Şifre:",
+          labelText: "Password:",
           labelStyle: TextStyle(fontSize: 17.0, fontWeight: FontWeight.bold)),
       obscureText: true,
       onSaved: (String value) {
@@ -77,7 +77,7 @@ class AddAdminState extends State with ValidationMixin {
   _kaydetButonu() {
     return RaisedButton(
       child: Text(
-        "Yeni Admin Ekle",
+        "Add New Admin",
         textDirection: TextDirection.ltr,
         style: TextStyle(fontSize: 20.0),
       ),
@@ -96,7 +96,7 @@ class AddAdminState extends State with ValidationMixin {
         splashColor: Colors.grey,
         highlightColor: Colors.white70,
         child: Text(
-          "Güvenli Çıkış",
+          "Safe Exit",
           style: TextStyle(fontSize: 15.0, fontWeight: FontWeight.bold),
         ),
         onPressed: () {},
