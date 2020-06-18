@@ -32,7 +32,7 @@ class _AdminHomePageState extends State<AdminHomePage> {
           leading: Icon(Icons.timeline),
           backgroundColor: Colors.deepOrangeAccent,
           title: Text(
-            "Admin Ana Sayfası",
+            "Admin Homepage",
             style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
           ),
         ),
@@ -305,7 +305,7 @@ class _AdminHomePageState extends State<AdminHomePage> {
   void alrtDone(BuildContext context, String message) {
     var alertDoctor = AlertDialog(
       title: Text(
-        "Sonuç",
+        "Result",
         style: TextStyle(fontWeight: FontWeight.bold),
       ),
       content: Text(message),
