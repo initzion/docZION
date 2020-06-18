@@ -20,7 +20,7 @@ class DeleteHospitalState extends State {
       backgroundColor: Colors.blueAccent,
       appBar: AppBar(
         title: Text(
-          "Hastane Silme Ekranı",
+          "Hospital Deletion Screen",
           style: TextStyle(fontSize: 25.0, fontWeight: FontWeight.bold),
         ),
       ),
@@ -37,7 +37,7 @@ class DeleteHospitalState extends State {
                     ),
                     Container(
                       child: Text(
-                        "UYARI!",
+                        "WARNING!",
                         style: TextStyle(
                             fontSize: 50.0,
                             fontWeight: FontWeight.bold,
@@ -46,7 +46,7 @@ class DeleteHospitalState extends State {
                     ),
                     Container(
                       child: Text(
-                        "Bir hastane sildiğinizde, o hastanenin tüm bölümlerini, doktorlarını ve aktif randevularını da silmiş olacaksınız.",
+                        "When you delete a hospital, you will also delete all the departments, doctors and active appointments of that hospital.",
                         style: TextStyle(
                             fontWeight: FontWeight.bold, fontSize: 20.0),
                       ),
@@ -55,7 +55,7 @@ class DeleteHospitalState extends State {
                       height: 50.0,
                     ),
                     RaisedButton(
-                      child: Text("Hastane Seçmek İçin Tıkla"),
+                      child: Text("Click to Choose Hospital"),
                       onPressed: () {
                         hospitalNavigator(BuildHospitalList());
                       },
@@ -105,7 +105,7 @@ class DeleteHospitalState extends State {
         child: Row(
           children: <Widget>[
             Text(
-              "Seçilen Hastane : ",
+              "Selected Hospital : ",
               style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold),
             ),
             Opacity(
@@ -125,7 +125,7 @@ class DeleteHospitalState extends State {
   void alrtHospital(BuildContext context, String message) {
     var alertDoctor = AlertDialog(
       title: Text(
-        "Uyarı!",
+        "Warning!",
         style: TextStyle(fontWeight: FontWeight.bold),
       ),
       content: Text(message),
@@ -141,7 +141,7 @@ class DeleteHospitalState extends State {
   _silButonu() {
     return RaisedButton(
       child: Text(
-        "Seçili Hastaneyi Sil",
+        "Delete Selected Hospital",
         textDirection: TextDirection.ltr,
         style: TextStyle(fontSize: 20.0),
       ),
@@ -149,7 +149,7 @@ class DeleteHospitalState extends State {
         if (hastaneSecildiMi) {
           alrtHastaneSil(context);
         } else {
-          alrtHospital(context, "Eksik veri var");
+          alrtHospital(context, "There is missing data");
         }
       },
     );
@@ -158,12 +158,12 @@ class DeleteHospitalState extends State {
   void alrtHastaneSil(BuildContext context) {
     var alrtRandevu = AlertDialog(
       title: Text(
-        " Hastane ile birlikte hastaneye kayıtlı bütün bölümler, bölüm doktorları ve doktor randevularıda silinecektir. Devam etmek istiyor musunuz?",
+        " Together with the hospital, all departments registered in the hospital, department doctors and doctor appointments will also be deleted. Do you want to continue?",
         style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
       ),
       actions: <Widget>[
         FlatButton(
-          child: Text("Hayır"),
+          child: Text("No"),
           onPressed: () {
             Navigator.pop(context);
           },
