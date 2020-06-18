@@ -21,7 +21,7 @@ class _AppointmentHistoryState extends State<AppointmentHistory> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Geçmiş Randevularınız"),
+        title: Text("Your Past Appointments"),
       ),
       body: _buildStremBuilder(context),
     );
@@ -83,7 +83,7 @@ class _AppointmentHistoryState extends State<AppointmentHistory> {
           ),
           subtitle: Text(randevu.islemTarihi),
           trailing: Text(
-            "Favorilere Ekle",
+            "Add to Favorites",
             style:
                 TextStyle(fontWeight: FontWeight.bold, color: Colors.redAccent),
           ),
@@ -98,12 +98,12 @@ class _AppointmentHistoryState extends State<AppointmentHistory> {
   void alrtFavEkle(BuildContext context, PassAppointment rand) {
     var alrtRandevu = AlertDialog(
       title: Text(
-        "Favorilere eklemek istediğinize emin misiniz?",
+        "Are you sure you want to add it to favorites?",
         style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
       ),
       actions: <Widget>[
         FlatButton(
-          child: Text("Hayır"),
+          child: Text("No"),
           onPressed: () {
             Navigator.pop(context);
           },
@@ -113,7 +113,7 @@ class _AppointmentHistoryState extends State<AppointmentHistory> {
         ),
         FlatButton(
           child: Text(
-            "Evet",
+            "Yes",
             textAlign: TextAlign.center,
           ),
           onPressed: () {
@@ -127,7 +127,7 @@ class _AppointmentHistoryState extends State<AppointmentHistory> {
                 Navigator.pop(context, true);
               } else {
                 Navigator.pop(context);
-                alrtHospital(context, "Favori listenizde olan bir doktoru tekrar ekleyemezsiniz.");
+                alrtHospital(context, "You cannot add a doctor who is on your favorites list again.");
               }
             });
           },
