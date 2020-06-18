@@ -14,10 +14,10 @@ class RegisterPageState extends State with ValidationMixin {
   final registerFormKey = GlobalKey<FormState>();
   final user = User();
 
-  var genders = ["Kadın", "Erkek"];
-  String selectedGenders = "Kadın";
+  var genders = ["Female", "Male"];
+  String selectedGenders = "Female";
   var dogumTarihi;
-  var raisedButtonText = "Tıkla ve Seç";
+  var raisedButtonText = "Female ve Male";
 
   Future<Null> _selectDate(BuildContext context) async {
     final DateTime picked = await showDatePicker(
@@ -33,7 +33,7 @@ class RegisterPageState extends State with ValidationMixin {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text("Yeni Üye Kaydı"),
+          title: Text("New Member Registration"),
         ),
         body: SingleChildScrollView(
           child: Container(
@@ -58,8 +58,8 @@ class RegisterPageState extends State with ValidationMixin {
 
   static void alrtDone(BuildContext context) {
     var alertDialog = AlertDialog(
-      title: Text("Kayıt Başarılı"),
-      content: Text("Giriş Yapabilirsiniz"),
+      title: Text("Registration Successful"),
+      content: Text("You can login"),
     );
 
     showDialog(
@@ -71,8 +71,8 @@ class RegisterPageState extends State with ValidationMixin {
 
   static void alrtFail(BuildContext context) {
     var alertDialog = AlertDialog(
-      title: Text("Giriş Başarısız"),
-      content: Text("Hatalı yada eksik bilgi girdiniz"),
+      title: Text("Login Failed"),
+      content: Text("You entered incorrect or missing information"),
     );
 
     showDialog(
@@ -88,7 +88,7 @@ class RegisterPageState extends State with ValidationMixin {
 
   Widget kimlikNoField() {
     return TextFormField(
-      decoration: InputDecoration(labelText: "T.C. Kimlik Numarası:"),
+      decoration: InputDecoration(labelText: "T. C. Identification number:"),
       validator: validateTCNo,
       onSaved: (String value) {
         user.kimlikNo = value;
@@ -98,7 +98,7 @@ class RegisterPageState extends State with ValidationMixin {
 
   Widget sifreField() {
     return TextFormField(
-      decoration: InputDecoration(labelText: "Şifre:"),
+      decoration: InputDecoration(labelText: "Password:"),
       onSaved: (String value) {
         user.sifre = value;
       },
@@ -117,7 +117,7 @@ class RegisterPageState extends State with ValidationMixin {
 
   Widget lastNameField() {
     return TextFormField(
-      decoration: InputDecoration(labelText: "Soyad"),
+      decoration: InputDecoration(labelText: "Surname"),
       validator: validateLastName,
       onSaved: (String value) {
         user.soyadi = value;
@@ -127,7 +127,7 @@ class RegisterPageState extends State with ValidationMixin {
 
   Widget placeofBirthField() {
     return TextFormField(
-      decoration: InputDecoration(labelText: "Doğum Yeri"),
+      decoration: InputDecoration(labelText: "Place of Birth"),
       onSaved: (String value) {
         user.dogumYeri = value;
       },
@@ -142,7 +142,7 @@ class RegisterPageState extends State with ValidationMixin {
             Container(
               padding: EdgeInsets.only(right: 25.0),
               child: Text(
-                "Cinsiyet: ",
+                "Gender: ",
                 style: TextStyle(fontSize: 19.0),
               ),
             ),
@@ -157,7 +157,7 @@ class RegisterPageState extends State with ValidationMixin {
               onChanged: (String tiklanan) {
                 setState(() {
                   if (tiklanan == null) {
-                    this.selectedGenders = "Kadın";
+                    this.selectedGenders = "Woman";
                   } else {
                     this.selectedGenders = tiklanan;
                   }
@@ -175,7 +175,7 @@ class RegisterPageState extends State with ValidationMixin {
       child: Row(
         children: <Widget>[
           Text(
-            "Doğum Tarihi: ",
+            "Date of Birth: ",
             style: TextStyle(fontSize: 19.0),
           ),
           RaisedButton(
@@ -197,7 +197,7 @@ class RegisterPageState extends State with ValidationMixin {
       padding: EdgeInsets.only(top: 45.0),
       child: RaisedButton(
         child: Text(
-          "Tamamla",
+          "Complete",
           textDirection: TextDirection.ltr,
           style: TextStyle(fontSize: 20.0),
         ),

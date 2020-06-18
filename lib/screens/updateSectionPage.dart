@@ -30,7 +30,7 @@ class UpdateSectionState extends State {
       backgroundColor: Colors.blueAccent,
       appBar: AppBar(
         title: Text(
-          "Bölüm Güncelle Ekranı",
+          "Update Section Screen",
           style: TextStyle(fontSize: 25.0, fontWeight: FontWeight.bold),
         ),
         backgroundColor: Colors.greenAccent,
@@ -47,7 +47,7 @@ class UpdateSectionState extends State {
                     Container(
                       child: RaisedButton(
                         child: Text(
-                          "Hastane Seçmek İçin Tıkla",
+                          "Click to Choose Hospital",
                           style: TextStyle(
                               fontSize: 20.0, fontWeight: FontWeight.bold),
                         ),
@@ -65,13 +65,14 @@ class UpdateSectionState extends State {
                       height: 30.0,
                     ),
                     RaisedButton(
-                      child: Text("Bölüm Seçmek İçin Tıkla"),
+                      child: Text("Click to Choose Section"),
                       onPressed: () {
                         if (hastaneSecildiMi) {
                           sectionNavigator(BuildSectionList(hastane));
                         } else {
                           alrtHospital(
-                              context, "Hastane seçmeden bölüm seçemezsiniz");
+                              context, "Hastane seçmeden bölüm seçemezsiniz");//You cannot choose a department without choosing a hospital
+
                         }
                       },
                     ),
@@ -100,7 +101,7 @@ class UpdateSectionState extends State {
   _yeniBolumAdi() {
     return TextFormField(
       decoration: InputDecoration(
-          labelText: "Yeni Bölüm Adini Girin:",
+          labelText: "Enter New Episode Name:",
           labelStyle: TextStyle(
               fontSize: 17.0,
               fontWeight: FontWeight.bold,
@@ -138,7 +139,7 @@ class UpdateSectionState extends State {
         child: Row(
           children: <Widget>[
             Text(
-              "Seçilen Hastane : ",
+              "Selected Hospital: ",
               style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold),
             ),
             Opacity(
@@ -168,7 +169,7 @@ class UpdateSectionState extends State {
 
   void alrtHospital(BuildContext context, String message) {
     var alertHospital = AlertDialog(
-      title: Text("Uyarı!"),
+      title: Text("Warning!"),
       content: Text(message),
     );
 
@@ -196,7 +197,7 @@ class UpdateSectionState extends State {
         child: Row(
           children: <Widget>[
             Text(
-              "Seçilen Bölüm : ",
+              "Selected Section: ",
               style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold),
             ),
             Opacity(
@@ -218,7 +219,7 @@ class UpdateSectionState extends State {
   _guncelleButonu() {
     return RaisedButton(
       child: Text(
-        "Bölümü Güncelle",
+        "Update Episode",
         textDirection: TextDirection.ltr,
         style: TextStyle(fontSize: 20.0),
       ),
@@ -235,11 +236,11 @@ class UpdateSectionState extends State {
               Navigator.pop(context, true);
             } else {
               alrtHospital(context,
-                  "Seçtiğiniz hastanede aynı isimde bir bölüm zaten mevcut");
+                  "Seçtiğiniz hastanede aynı isimde bir bölüm zaten mevcut");//A department with the same name already exists in the hospital you selected
             }
           });
         } else {
-          alrtHospital(context, "Eksik Bilgi");
+          alrtHospital(context, "Eksik Bilgi");//Missing information
         }
       },
     );

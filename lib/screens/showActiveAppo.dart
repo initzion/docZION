@@ -22,7 +22,7 @@ class _BuildAppointmentListState extends State<BuildAppointmentList> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Aktif Randevularınız"),
+        title: Text("Your Active Appointments"),
       ),
       body: _buildStremBuilder(context),
     );
@@ -31,8 +31,8 @@ class _BuildAppointmentListState extends State<BuildAppointmentList> {
   _buildStremBuilder(BuildContext context) {
     return StreamBuilder<QuerySnapshot>(
       stream: Firestore.instance
-          .collection("tblAktifRandevu")
-          .where('hastaTCKN', isEqualTo: user.kimlikNo)
+          .collection("tblAktifRandevu")//Active Appointment
+          .where('hastaTCKN', isEqualTo: user.kimlikNo)//patient TC NO
           .snapshots(),
       builder: (context, snapshot) {
         if (!snapshot.hasData) {
@@ -84,7 +84,7 @@ class _BuildAppointmentListState extends State<BuildAppointmentList> {
             ],
           ),
           subtitle: Text(randevu.randevuTarihi),
-          trailing: Text("İptal Et",style: TextStyle(fontWeight: FontWeight.bold,color: Colors.redAccent),),
+          trailing: Text("Cancel",style: TextStyle(fontWeight: FontWeight.bold,color: Colors.redAccent),),
           onTap: () {
             alrtRandevuIptalEt(context, randevu);
           },
@@ -96,12 +96,12 @@ class _BuildAppointmentListState extends State<BuildAppointmentList> {
   void alrtRandevuIptalEt(BuildContext context, ActiveAppointment rand) {
     var alrtRandevu = AlertDialog(
       title: Text(
-        "Randevuyu iptal etmek istediğinize emin misiniz?",
+        "Are you sure you want to cancel the appointment?",
         style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
       ),
       actions: <Widget>[
         FlatButton(
-          child: Text("Hayır"),
+          child: Text("No"),
           onPressed: () {
             Navigator.pop(context);
           },
@@ -111,7 +111,7 @@ class _BuildAppointmentListState extends State<BuildAppointmentList> {
         ),
         FlatButton(
           child: Text(
-            "Evet",
+            "Yeah",
             textAlign: TextAlign.center,
           ),
           onPressed: () {

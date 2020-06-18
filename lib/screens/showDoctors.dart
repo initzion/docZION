@@ -22,7 +22,7 @@ class _BuildDoctorListState extends State<BuildDoctorList> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Doktorlar"),
+        title: Text("Doctors"),
       ),
       body: _buildStremBuilder(context),
     );

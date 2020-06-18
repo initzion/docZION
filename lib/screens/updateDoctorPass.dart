@@ -21,7 +21,7 @@ class _OnlyUpdatePasswordState extends State<OnlyUpdatePassword> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text("Şifre Güncelle"),
+          title: Text("Update Password"),
         ),
         body: SingleChildScrollView(
           child: Container(
@@ -48,7 +48,7 @@ class _OnlyUpdatePasswordState extends State<OnlyUpdatePassword> {
   Widget sifreField() {
     return TextFormField(
       decoration: InputDecoration(
-          labelText: "Yeni Şifre",
+          labelText: "new password",
           labelStyle:
               TextStyle(fontWeight: FontWeight.bold, color: Colors.black)),
       onSaved: (String value) {
@@ -61,7 +61,7 @@ class _OnlyUpdatePasswordState extends State<OnlyUpdatePassword> {
   Widget eskiSifreField() {
     return TextFormField(
       decoration: InputDecoration(
-          labelText: "Eski Şifre",
+          labelText: "Old password",
           labelStyle:
               TextStyle(fontWeight: FontWeight.bold, color: Colors.black)),
       onSaved: (String value) {
@@ -74,7 +74,7 @@ class _OnlyUpdatePasswordState extends State<OnlyUpdatePassword> {
   submitButton() {
     return Container(
       child: RaisedButton(
-        child: Text("Tamamla"),
+        child: Text("Complete"),
         onPressed: () {
           if (formKey.currentState.validate()) {
             formKey.currentState.save();
@@ -89,10 +89,10 @@ class _OnlyUpdatePasswordState extends State<OnlyUpdatePassword> {
 
               Navigator.pop(context, true);
             } else {
-              alrtHospital(context, "Hatalı yada eksik bilgi girdiniz...");
+              alrtHospital(context, "Hatalı yada eksik bilgi girdiniz...");//You entered incorrect or missing information ...
             }
           } else {
-            alrtHospital(context, "Hatalı yada eksik bilgi girdiniz...");
+            alrtHospital(context, "Hatalı yada eksik bilgi girdiniz...");//Hatalı yada eksik bilgi girdiniz...
           }
         },
       ),
@@ -102,7 +102,7 @@ class _OnlyUpdatePasswordState extends State<OnlyUpdatePassword> {
   void alrtHospital(BuildContext context, String message) {
     var alertDoctor = AlertDialog(
       title: Text(
-        "Bilgilendirme!",
+        "Information!",
         style: TextStyle(fontWeight: FontWeight.bold),
       ),
       content: Text(message),

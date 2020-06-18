@@ -12,7 +12,7 @@ class _BuildHospitalListState extends State<BuildHospitalList> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Hastaneler"),
+        title: Text("Hospitals"),
       ),
       body: _buildStremBuilder(context),
     );

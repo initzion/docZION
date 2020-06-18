@@ -22,7 +22,7 @@ class _BuildUserFavListState extends State<BuildUserFavList> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Favori Doktorlar"),
+        title: Text("Favorite Doctors"),
       ),
       body: _buildStremBuilder(context),
     );
@@ -82,7 +82,7 @@ class _BuildUserFavListState extends State<BuildUserFavList> {
             ],
           ),
           trailing: Text(
-            "Favorilerden Çıkar",
+            "Remove from Favorites",
             style:
                 TextStyle(fontWeight: FontWeight.bold, color: Colors.redAccent),
           ),
@@ -97,12 +97,12 @@ class _BuildUserFavListState extends State<BuildUserFavList> {
   void alrtDeleteADoc(BuildContext context, FavoriteList fav) {
     var alrtDelete = AlertDialog(
       title: Text(
-        "Favorilerinizden çıkarmak istediğinize emin misiniz?",
+        "Are you sure you want to remove from your favorites?",
         style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
       ),
       actions: <Widget>[
         FlatButton(
-          child: Text("Hayır"),
+          child: Text("No"),
           onPressed: () {
             Navigator.pop(context);
           },
@@ -112,7 +112,7 @@ class _BuildUserFavListState extends State<BuildUserFavList> {
         ),
         FlatButton(
           child: Text(
-            "Evet",
+            "Yeah",
             textAlign: TextAlign.center,
           ),
           onPressed: () {

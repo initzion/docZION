@@ -21,7 +21,7 @@ class _UpdateUserState extends State<UpdateUser> with ValidationMixin {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Bilgileri Güncelle"),
+        title: Text("Update Information"),
       ),
       backgroundColor: Colors.limeAccent,
       body: SingleChildScrollView(
@@ -46,7 +46,7 @@ class _UpdateUserState extends State<UpdateUser> with ValidationMixin {
   Widget sifreField() {
     return TextFormField(
       decoration: InputDecoration(
-          labelText: "Şifre",
+          labelText: "Password",
           labelStyle:
               TextStyle(fontWeight: FontWeight.bold, color: Colors.black)),
       onSaved: (String value) {
@@ -59,7 +59,7 @@ class _UpdateUserState extends State<UpdateUser> with ValidationMixin {
   Widget firstNameField() {
     return TextFormField(
       decoration: InputDecoration(
-          labelText: "Ad",
+          labelText: "Name",
           labelStyle:
               TextStyle(fontWeight: FontWeight.bold, color: Colors.black)),
       validator: validateFirstName,
@@ -72,7 +72,7 @@ class _UpdateUserState extends State<UpdateUser> with ValidationMixin {
   Widget lastNameField() {
     return TextFormField(
       decoration: InputDecoration(
-          labelText: "Soyad",
+          labelText: "Surname",
           labelStyle:
               TextStyle(fontWeight: FontWeight.bold, color: Colors.black)),
       validator: validateLastName,
@@ -92,7 +92,7 @@ class _UpdateUserState extends State<UpdateUser> with ValidationMixin {
           ),
           color: Colors.black),
       child: RaisedButton(
-        child: Text("Tamamla",
+        child: Text("Complete",
             style: TextStyle(
                 fontWeight: FontWeight.bold,
                 color: Colors.black,

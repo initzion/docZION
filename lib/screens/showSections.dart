@@ -18,7 +18,7 @@ class _BuildSectionListState extends State<BuildSectionList> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Bölümler"),
+        title: Text("Sections"),
       ),
       body: _buildStremBuilder(context),
     );

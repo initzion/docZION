@@ -24,7 +24,7 @@ class _BuildAppointmentListState extends State<BuildAppointmentListForDoctor> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Bekleyen Randevularınız"),
+        title: Text("Your Pending Appointments"),
       ),
       body: _buildStremBuilder(context),
     );
@@ -91,7 +91,7 @@ class _BuildAppointmentListState extends State<BuildAppointmentListForDoctor> {
           ),
           subtitle: Text(randevu.randevuTarihi),
           trailing: Text(
-            "Tamamla",
+            "Complete",
             style:
                 TextStyle(color: Colors.redAccent, fontWeight: FontWeight.bold),
           ),
@@ -106,13 +106,13 @@ class _BuildAppointmentListState extends State<BuildAppointmentListForDoctor> {
   void alrtRandevuTamamla(BuildContext context, ActiveAppointment rand) {
     var alrtRandevu = AlertDialog(
       title: Text(
-        "Randevuyu Bitir",
+        "End Appointment",
         style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
       ),
       actions: <Widget>[
         FlatButton(
           child: Text(
-            "Evet",
+            "Yeah",
             textAlign: TextAlign.center,
           ),
           onPressed: () {

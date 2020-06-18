@@ -52,7 +52,7 @@ class _AppointmentTimesState extends State<AppointmentTimes> {
         appBar: AppBar(
           leading: Icon(Icons.access_time),
           centerTitle: true,
-          title: Text("Randevu Saatleri"),
+          title: Text("Appointment Hours"),
         ),
         body: Container(
           padding: EdgeInsets.only(top: 50.0, left: 25.0, right: 30.0),
@@ -60,7 +60,7 @@ class _AppointmentTimesState extends State<AppointmentTimes> {
             children: <Widget>[
               Container(
                 child: Text(
-                  "Belirtilen saatler randevu başlangıç saatleridir. Her randevuya 1 saat ayrılmaktadır.",
+                  "The times specified are the appointment start times. Each appointment is reserved for 1 hour.",
                   style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 20.0,
@@ -106,7 +106,7 @@ class _AppointmentTimesState extends State<AppointmentTimes> {
         Container(
           padding: EdgeInsets.only(top: 13.0, bottom: 13.0),
           child: Text(
-            "Öğle Arası",
+            "Lunch Break",
             style: TextStyle(fontSize: 25.0, fontWeight: FontWeight.bold),
           ),
         ),
@@ -170,14 +170,14 @@ class _AppointmentTimesState extends State<AppointmentTimes> {
     if (birlesimKontrol[index]) {
       Navigator.pop(context, birlesim[index]);
     } else {
-      alrtHospital(context, "Bu seans seçilemez.");
+      alrtHospital(context, "This session cannot be selected.");
     }
   }
 
   void alrtHospital(BuildContext context, String message) {
     var alertDoctor = AlertDialog(
       title: Text(
-        "Uyarı!",
+        "Warning!",
         style: TextStyle(fontWeight: FontWeight.bold),
       ),
       content: Text(message),

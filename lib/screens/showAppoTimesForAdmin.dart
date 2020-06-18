@@ -55,7 +55,7 @@ class _AppointmentTimesForAdminState extends State<AppointmentTimesForAdmin> {
         appBar: AppBar(
           leading: Icon(Icons.access_time),
           centerTitle: true,
-          title: Text("Randevu Saatleri"),
+          title: Text("Appointment Hours"),
         ),
         body: Container(
           padding: EdgeInsets.only(top: 50.0, left: 25.0, right: 30.0),
@@ -63,7 +63,7 @@ class _AppointmentTimesForAdminState extends State<AppointmentTimesForAdmin> {
             children: <Widget>[
               Container(
                 child: Text(
-                  "Belirtilen saatler randevu başlangıç saatleridir. Her randevuya 1 saat ayrılmaktadır.",
+                  "The times specified are the appointment start times. Each appointment is reserved for 1 hour.",
                   style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 20.0,
@@ -109,7 +109,7 @@ class _AppointmentTimesForAdminState extends State<AppointmentTimesForAdmin> {
         Container(
           padding: EdgeInsets.only(top: 13.0, bottom: 13.0),
           child: Text(
-            "Öğle Arası",
+            "Lunch Break",
             style: TextStyle(fontSize: 25.0, fontWeight: FontWeight.bold),
           ),
         ),
@@ -173,14 +173,14 @@ class _AppointmentTimesForAdminState extends State<AppointmentTimesForAdmin> {
     if (birlesimKontrol[index]) {
       Navigator.pop(context, birlesim[index]);
     } else {
-      alrtHospital(context, "Kapalı olmayan bir seans açılamaz.");
+      alrtHospital(context, "A closed session cannot be opened.");
     }
   }
 
   void alrtHospital(BuildContext context, String message) {
     var alertDoctor = AlertDialog(
       title: Text(
-        "Uyarı!",
+        "Warning!",
         style: TextStyle(fontWeight: FontWeight.bold),
       ),
       content: Text(message),

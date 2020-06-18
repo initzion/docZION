@@ -34,7 +34,7 @@ class UpdateDoctorState extends State with ValidationMixin {
       backgroundColor: Colors.blueAccent,
       appBar: AppBar(
         title: Text(
-          "Doktor Güncelle Ekranı",
+          "Doctor Update Screen ",
           style: TextStyle(fontSize: 25.0, fontWeight: FontWeight.bold),
         ),
       ),
@@ -49,13 +49,13 @@ class UpdateDoctorState extends State with ValidationMixin {
                   children: <Widget>[
                     Container(
                       child: Text(
-                        "Adım 1 : Güncelleme yapılacak doktoru seçin",
+                        "Step 1: Select the doctor to update",
                         style: TextStyle(
                             fontWeight: FontWeight.bold, fontSize: 20.0),
                       ),
                     ),
                     RaisedButton(
-                      child: Text("Hastane Seçmek İçin Tıkla"),
+                      child: Text("Click to Choose Hospital"),
                       onPressed: () {
                         bolumSecildiMi = false;
                         doktorSecildiMi = false;
@@ -68,7 +68,7 @@ class UpdateDoctorState extends State with ValidationMixin {
                       height: 30.0,
                     ),
                     RaisedButton(
-                      child: Text("Bölüm Seçmek İçin Tıkla"),
+                      child: Text("Click to Choose Section"),
                       onPressed: () {
                         if (hastaneSecildiMi) {
                           doktorSecildiMi = false;
@@ -88,13 +88,14 @@ class UpdateDoctorState extends State with ValidationMixin {
                       height: 30.0,
                     ),
                     RaisedButton(
-                      child: Text("Doktor Seçmek İçin Tıkla"),
+                      child: Text("Click to Choose a Doctor"),
                       onPressed: () {
                         if (hastaneSecildiMi && bolumSecildiMi) {
                           doctorNavigator(BuildDoctorList(section, hastane));
                         } else {
                           alrtHospital(context,
                               "Hastane ve bölüm seçmeden doktor seçemezsiniz");
+                          //You cannot choose a doctor without choosing a hospital or department
                         }
                       },
                     ),
@@ -112,7 +113,7 @@ class UpdateDoctorState extends State with ValidationMixin {
                     ),
                     Container(
                       child: Text(
-                        "Adım 2 : Seçtiğiniz doktorun güncel bilgilerini girin",
+                        "Step 2: Enter the updated information of the doctor you have chosen",
                         style: TextStyle(
                             fontWeight: FontWeight.bold, fontSize: 20.0),
                       ),

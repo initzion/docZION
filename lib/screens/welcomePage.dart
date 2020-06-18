@@ -49,11 +49,11 @@ class WelcomePageState extends State
           indicatorColor: Colors.white70,
           tabs: <Widget>[
             Text(
-              "Kullanıcı",
+              "User",
               style: TextStyle(fontSize: 15.0, fontWeight: FontWeight.bold),
             ),
             Text(
-              "Doktor",
+              "Doctor",
               style: TextStyle(fontSize: 15.0, fontWeight: FontWeight.bold),
             ),
             Text(
@@ -71,13 +71,13 @@ class WelcomePageState extends State
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
                 pagePlanWithForm(kimlikNoField(0, context), sifreField(0),
-                    "Hoşgeldiniz", kullaniciFormKey),
+                    "Welcome", kullaniciFormKey),
                 registerButton()
               ])),
           pagePlanWithForm(kimlikNoField(1, context), sifreField(1),
-              "Doktor Girişi", doktorFormKey),
+              "Doctor Login", doktorFormKey),
           pagePlanWithForm(
-              adminNicknameField(), sifreField(2), "Admin Girişi", adminFormKey)
+              adminNicknameField(), sifreField(2), "Admin Login", adminFormKey)
         ],
       ),
     );
@@ -96,7 +96,7 @@ class WelcomePageState extends State
     return Container(
       child: FlatButton(
         child: Text(
-          "Kayıt Ol",
+          "Register",
           style: TextStyle(fontSize: 15.0),
         ),
         textColor: Colors.black,
@@ -185,7 +185,7 @@ class WelcomePageState extends State
     return TextFormField(
       keyboardType: TextInputType.number,
       decoration: InputDecoration(
-        labelText: "T.C. Kimlik Numarası:",
+        labelText: "T.C.Identification number:",
         labelStyle: TextStyle(
             fontSize: 17.0, fontWeight: FontWeight.bold, color: Colors.grey),
       ),
@@ -202,7 +202,7 @@ class WelcomePageState extends State
   Widget sifreField(int tabIndex) {
     return TextFormField(
       decoration: InputDecoration(
-        labelText: "Şifre:",
+        labelText: "Password:",
         labelStyle: TextStyle(
             fontSize: 17.0, fontWeight: FontWeight.bold, color: Colors.grey),
       ),
@@ -222,7 +222,7 @@ class WelcomePageState extends State
 
   Widget adminNicknameField() {
     return TextFormField(
-      decoration: InputDecoration(labelText: "Kullanıcı Adı:"),
+      decoration: InputDecoration(labelText: "User name:"),
       validator: validateAdmin,
       onSaved: (String value) {
         admin.nickname = value;
@@ -265,7 +265,7 @@ class WelcomePageState extends State
       padding: EdgeInsets.only(top: 30.0),
       child: FlatButton(
         child: Text(
-          "Giriş Yap",
+          "Login",
           style: TextStyle(fontSize: 22.0),
         ),
         textColor: Colors.blueAccent,

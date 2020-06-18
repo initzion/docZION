@@ -25,7 +25,7 @@ class UpdateHospitalState extends State with ValidationMixin {
       backgroundColor: Colors.blueAccent,
       appBar: AppBar(
         title: Text(
-          "Hastane Güncelle Ekranı",
+          "Hospital Update Screen",
           style: TextStyle(fontSize: 25.0, fontWeight: FontWeight.bold),
         ),
       ),
@@ -39,7 +39,7 @@ class UpdateHospitalState extends State with ValidationMixin {
                 child: Column(
                   children: <Widget>[
                     RaisedButton(
-                      child: Text("Hastane Seçmek İçin Tıkla"),
+                      child: Text("Click to Choose Hospital"),
                       onPressed: () {
                         hospitalNavigator(BuildHospitalList());
                       },
@@ -67,7 +67,7 @@ class UpdateHospitalState extends State with ValidationMixin {
   _yeniHastaneAdi() {
     return TextFormField(
       decoration: InputDecoration(
-          labelText: "Yeni Hastane Adini Girin:",
+          labelText: "Enter New Hospital Name:",
           labelStyle: TextStyle(
               fontSize: 17.0,
               fontWeight: FontWeight.bold,
@@ -106,7 +106,7 @@ class UpdateHospitalState extends State with ValidationMixin {
         child: Row(
           children: <Widget>[
             Text(
-              "Seçilen Hastane : ",
+              "Selected Hospital : ",
               style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold),
             ),
             Opacity(
@@ -126,7 +126,7 @@ class UpdateHospitalState extends State with ValidationMixin {
   void alrtHospital(BuildContext context, String message) {
     var alertDoctor = AlertDialog(
       title: Text(
-        "Uyarı!",
+        "Warning!",
         style: TextStyle(fontWeight: FontWeight.bold),
       ),
       content: Text(message),
@@ -143,7 +143,7 @@ class UpdateHospitalState extends State with ValidationMixin {
     return Container(
       child: RaisedButton(
         child: Text(
-          "Hastaneyi Güncelle",
+          "Update Hospital",
           textDirection: TextDirection.ltr,
           style: TextStyle(fontSize: 20.0),
         ),

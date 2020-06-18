@@ -29,7 +29,7 @@ class UserHomePageState extends State {
         appBar: AppBar(
           backgroundColor: Colors.greenAccent,
           centerTitle: true,
-          title: Text("Kullanıcı Ana Sayfası"),
+          title: Text("User Home"),
         ),
         body: SingleChildScrollView(
           child: Column(
@@ -181,12 +181,13 @@ class UserHomePageState extends State {
           splashColor: Colors.grey,
           highlightColor: Colors.white70,
           child: Text(
-            "Randevu Al",
+            "Make an appointment",
             style: TextStyle(fontSize: 15.0, fontWeight: FontWeight.bold),
           ),
           onPressed: () {
             basicNavigator(MakeAppointment(kullanici),
-                "Randevu Kaydınız Başarıyla Alındı. Şimdiden Geçmiş Olsun :)");
+                "Randevu Kaydınız Başarıyla Alındı. Şimdiden Geçmiş Olsun :)");//
+           // Your Appointment Record Has Been Successfully Received. Get well soon:
           }),
     );
   }
@@ -202,7 +203,7 @@ class UserHomePageState extends State {
         splashColor: Colors.grey,
         highlightColor: Colors.white70,
         child: Text(
-          "Randevu Geçmişi",
+          "Appointment History",
           style: TextStyle(fontSize: 15.0, fontWeight: FontWeight.bold),
         ),
         onPressed: () => Navigator.push(
@@ -224,7 +225,7 @@ class UserHomePageState extends State {
           splashColor: Colors.grey,
           highlightColor: Colors.white70,
           child: Text(
-            "Aktif Randevuları Listele",
+            "List Active Appointments",
             style: TextStyle(fontSize: 15.0, fontWeight: FontWeight.bold),
           ),
           onPressed: () {
@@ -244,7 +245,7 @@ class UserHomePageState extends State {
           splashColor: Colors.grey,
           highlightColor: Colors.white70,
           child: Text(
-            "Favorileri Görüntüle",
+            "View Favourites",
             style: TextStyle(fontSize: 15.0, fontWeight: FontWeight.bold),
           ),
           onPressed: () {
@@ -264,11 +265,11 @@ class UserHomePageState extends State {
         splashColor: Colors.grey,
         highlightColor: Colors.white70,
         child: Text(
-          "Bilgileri Güncelle",
+          "Update Information",
           style: TextStyle(fontSize: 15.0, fontWeight: FontWeight.bold),
         ),
         onPressed: () {
-          basicNavigator(UpdateUser(kullanici), "İşlem Tamamlandı");
+          basicNavigator(UpdateUser(kullanici), "İşlem Tamamlandı");//Process Completed
         },
       ),
     );
@@ -286,7 +287,7 @@ class UserHomePageState extends State {
   void alrtHospital(BuildContext context, String message) {
     var alertDoctor = AlertDialog(
       title: Text(
-        "Bilgilendirme!",
+        "Information!",
         style: TextStyle(fontWeight: FontWeight.bold),
       ),
       content: Text(message),
@@ -310,7 +311,7 @@ class UserHomePageState extends State {
         splashColor: Colors.grey,
         highlightColor: Colors.white70,
         child: Text(
-          "Güvenli Çıkış",
+          "Safe Exit",
           style: TextStyle(fontSize: 15.0, fontWeight: FontWeight.bold),
         ),
         onPressed: () {
