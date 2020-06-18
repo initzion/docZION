@@ -26,10 +26,10 @@ class AddDoctorState extends State with ValidationMixin {
   double goruntu = 0.0;
   final formKey = GlobalKey<FormState>();
 
-  var genders = ["Kadın", "Erkek"];
-  String selectedGenders = "Kadın";
+  var genders = ["Female", "Male"];
+  String selectedGenders = "Female";
   var dogumTarihi;
-  var raisedButtonText = "Tıkla ve Seç";
+  var raisedButtonText = "Click and Select";
 
   Future<Null> _selectDate(BuildContext context) async {
     final DateTime picked = await showDatePicker(
@@ -46,7 +46,7 @@ class AddDoctorState extends State with ValidationMixin {
     return Scaffold(
         appBar: AppBar(
           title: Text(
-            "Doktor Ekle",
+            "Add Doctor",
             style: TextStyle(fontSize: 25.0, fontWeight: FontWeight.bold),
           ),
         ),
@@ -70,7 +70,7 @@ class AddDoctorState extends State with ValidationMixin {
                         height: 13.0,
                       ),
                       RaisedButton(
-                        child: Text("Hastane Seçmek İçin Tıkla"),
+                        child: Text("Click to Choose Hospital"),
                         onPressed: () {
                           bolumSecildiMi = false;
                           hospitalNavigator(BuildHospitalList());
@@ -84,13 +84,13 @@ class AddDoctorState extends State with ValidationMixin {
                         height: 16.0,
                       ),
                       RaisedButton(
-                        child: Text("Bölüm Seçmek İçin Tıkla"),
+                        child: Text("Click to Choose Section"),
                         onPressed: () {
                           if (hastaneSecildiMi) {
                             sectionNavigator(BuildSectionList(hastane));
                           } else {
                             alrtHospital(
-                                context, "Hastane seçmeden bölüm seçemezsiniz");
+                                context, "You cannot choose a department without choosing a hospital");
                           }
                         },
                       ),
@@ -114,7 +114,7 @@ class AddDoctorState extends State with ValidationMixin {
   Widget _kimlikNoField() {
     return TextFormField(
       decoration: InputDecoration(
-          labelText: "T.C. Kimlik Numarası:",
+          labelText: "T. C. Identification number:",
           labelStyle: TextStyle(fontSize: 17.0, fontWeight: FontWeight.bold)),
       validator: validateTCNo,
       keyboardType: TextInputType.number,
@@ -127,7 +127,7 @@ class AddDoctorState extends State with ValidationMixin {
   Widget _passwordField() {
     return TextFormField(
       decoration: InputDecoration(
-          labelText: "Şifre:",
+          labelText: "Password:",
           labelStyle: TextStyle(fontSize: 17.0, fontWeight: FontWeight.bold)),
       obscureText: true,
       onSaved: (String value) {
@@ -139,7 +139,7 @@ class AddDoctorState extends State with ValidationMixin {
   Widget _nameField() {
     return TextFormField(
       decoration: InputDecoration(
-          labelText: "Ad:",
+          labelText: "Name:",
           labelStyle: TextStyle(fontSize: 17.0, fontWeight: FontWeight.bold)),
       validator: validateFirstName,
       onSaved: (String value) {
@@ -151,7 +151,7 @@ class AddDoctorState extends State with ValidationMixin {
   Widget _surnameField() {
     return TextFormField(
       decoration: InputDecoration(
-          labelText: "Soyad:",
+          labelText: "Surname:",
           labelStyle: TextStyle(fontSize: 17.0, fontWeight: FontWeight.bold)),
       validator: validateLastName,
       onSaved: (String value) {
@@ -162,7 +162,7 @@ class AddDoctorState extends State with ValidationMixin {
 
   Widget placeofBirthField() {
     return TextFormField(
-      decoration: InputDecoration(labelText: "Doğum Yeri",labelStyle: TextStyle(fontWeight: FontWeight.bold)),
+      decoration: InputDecoration(labelText: "Place of birth",labelStyle: TextStyle(fontWeight: FontWeight.bold)),
       onSaved: (String value) {
         doktor.dogumYeri = value;
       },
@@ -177,7 +177,7 @@ class AddDoctorState extends State with ValidationMixin {
             Container(
               padding: EdgeInsets.only(right: 25.0),
               child: Text(
-                "Cinsiyet: ",
+                "Gender: ",
                 style: TextStyle(fontSize: 19.0),
               ),
             ),
@@ -192,7 +192,7 @@ class AddDoctorState extends State with ValidationMixin {
               onChanged: (String tiklanan) {
                 setState(() {
                   if (tiklanan == null) {
-                    this.selectedGenders = "Kadın";
+                    this.selectedGenders = "Female";
                   } else {
                     this.selectedGenders = tiklanan;
                   }
@@ -210,7 +210,7 @@ class AddDoctorState extends State with ValidationMixin {
       child: Row(
         children: <Widget>[
           Text(
-            "Doğum Tarihi: ",
+            "Date of birth: ",
             style: TextStyle(fontSize: 19.0),
           ),
           RaisedButton(
@@ -230,7 +230,7 @@ class AddDoctorState extends State with ValidationMixin {
 
   void alrtHospital(BuildContext context, String message) {
     var alertDoctor = AlertDialog(
-      title: Text("Uyarı!"),
+      title: Text("Warning!"),
       content: Text(message),
     );
 
@@ -279,7 +279,7 @@ class AddDoctorState extends State with ValidationMixin {
         child: Row(
           children: <Widget>[
             Text(
-              "Seçilen Hastane : ",
+              "Selected Hospital : ",
               style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold),
             ),
             Opacity(
@@ -313,7 +313,7 @@ class AddDoctorState extends State with ValidationMixin {
         child: Row(
           children: <Widget>[
             Text(
-              "Seçilen Bölüm : ",
+              "Selected Section : ",
               style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold),
             ),
             Opacity(
@@ -337,7 +337,7 @@ class AddDoctorState extends State with ValidationMixin {
       padding: EdgeInsets.only(top: 17.0),
       child: RaisedButton(
         child: Text(
-          "Tamamla",
+          "Complete",
           style: TextStyle(fontSize: 25.0, fontWeight: FontWeight.bold),
         ),
         onPressed: () {
@@ -354,12 +354,12 @@ class AddDoctorState extends State with ValidationMixin {
                 Navigator.pop(context, true);
               } else {
                 alrtHospital(context,
-                    "Bu kimlik numarasına sahip bir doktor zaten mevcut");
+                    "A doctor with this ID number already exists");
               }
             });
           } else {
             alrtHospital(context,
-                "İşlemi tamamlamak için gerekli alanları doldurmanız gerekmektedir");
+                "You must fill the required fields to complete the process.");
           }
         },
       ),
