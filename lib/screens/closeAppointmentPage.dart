@@ -41,7 +41,7 @@ class CloseAppointmentState extends State<CloseAppointment> {
   String textMessage = " ";
 
   var randevuTarihi;
-  var raisedButtonText = "Tıkla ve Seç";
+  var raisedButtonText = "Click and Select";
 
   var saatTarihBirlesim;
 
@@ -60,7 +60,7 @@ class CloseAppointmentState extends State<CloseAppointment> {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          "Doktor Randevusu Kapat",
+          "Doctor Appointment Close",
           style: TextStyle(fontSize: 25.0, fontWeight: FontWeight.bold),
         ),
       ),
@@ -72,7 +72,7 @@ class CloseAppointmentState extends State<CloseAppointment> {
               child: Column(
                 children: <Widget>[
                   RaisedButton(
-                    child: Text("Hastane Seçmek İçin Tıkla"),
+                    child: Text("Click to Choose Hospital"),
                     onPressed: () {
                       bolumSecildiMi = false;
                       doktorSecildiMi = false;
@@ -86,7 +86,7 @@ class CloseAppointmentState extends State<CloseAppointment> {
                     height: 30.0,
                   ),
                   RaisedButton(
-                    child: Text("Bölüm Seçmek İçin Tıkla"),
+                    child: Text("Click to Choose Section"),
                     onPressed: () {
                       if (hastaneSecildiMi) {
                         doktorSecildiMi = false;
@@ -95,7 +95,7 @@ class CloseAppointmentState extends State<CloseAppointment> {
                         sectionNavigator(BuildSectionList(hastane));
                       } else {
                         alrtHospital(
-                            context, "Hastane seçmeden bölüm seçemezsiniz");
+                            context, "You cannot choose a department without choosing a hospital");
                       }
                     },
                   ),
@@ -107,13 +107,13 @@ class CloseAppointmentState extends State<CloseAppointment> {
                     height: 30.0,
                   ),
                   RaisedButton(
-                    child: Text("Doktor Seçmek İçin Tıkla"),
+                    child: Text("Click to Choose a Doctor"),
                     onPressed: () {
                       if (hastaneSecildiMi && bolumSecildiMi) {
                         doctorNavigator(BuildDoctorList(section, hastane));
                       } else {
                         alrtHospital(context,
-                            "Hastane ve bölüm seçmeden doktor seçemezsiniz");
+                            "You cannot choose a doctor without choosing a hospital or department");
                       }
                     },
                   ),
@@ -129,7 +129,7 @@ class CloseAppointmentState extends State<CloseAppointment> {
                     height: 16.0,
                   ),
                   RaisedButton(
-                    child: Text("İşlem Saati Seçmek İçin Tıkla"),
+                    child: Text("Click to Select Trading Time"),
                     onPressed: () {
                       if (randevuTarihi != null &&
                           hastaneSecildiMi &&
@@ -140,7 +140,7 @@ class CloseAppointmentState extends State<CloseAppointment> {
                         tarihSecildiMi = true;
                       } else {
                         alrtHospital(context,
-                            "Yukarıdaki seçimler tamamlanmadan saat seçimine geçilemez");
+                            "Time selection cannot be made until the above selections are completed.");
                       }
                     },
                   ),
@@ -188,7 +188,7 @@ class CloseAppointmentState extends State<CloseAppointment> {
         child: Row(
           children: <Widget>[
             Text(
-              "Seçilen Hastane : ",
+              "Selected Hospital : ",
               style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold),
             ),
             Opacity(
@@ -208,7 +208,7 @@ class CloseAppointmentState extends State<CloseAppointment> {
   void alrtHospital(BuildContext context, String message) {
     var alertDoctor = AlertDialog(
       title: Text(
-        "Uyarı!",
+        "Warning!",
         style: TextStyle(fontWeight: FontWeight.bold),
       ),
       content: Text(message),
@@ -249,7 +249,7 @@ class CloseAppointmentState extends State<CloseAppointment> {
         child: Row(
           children: <Widget>[
             Text(
-              "Seçilen Bölüm : ",
+              "Selected Section : ",
               style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold),
             ),
             Opacity(
@@ -295,7 +295,7 @@ class CloseAppointmentState extends State<CloseAppointment> {
         child: Row(
           children: <Widget>[
             Text(
-              "Seçilen Doktor : ",
+              "Selected Doctor : ",
               style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold),
             ),
             Opacity(
@@ -330,7 +330,7 @@ class CloseAppointmentState extends State<CloseAppointment> {
       child: Row(
         children: <Widget>[
           Text(
-            "İşlem Tarihi: ",
+            "Transaction date: ",
             style: TextStyle(fontSize: 19.0),
           ),
           RaisedButton(
@@ -338,7 +338,7 @@ class CloseAppointmentState extends State<CloseAppointment> {
             onPressed: () {
               _selectDate(context).then((result) => setState(() {
                     if (randevuTarihi == null) {
-                      raisedButtonText = "Tıkla ve Seç";
+                      raisedButtonText = "Click and Select";
                       tarihSecildiMi = false;
                     } else {
                       raisedButtonText =
@@ -368,7 +368,7 @@ class CloseAppointmentState extends State<CloseAppointment> {
         child: Row(
           children: <Widget>[
             Text(
-              "İşlem Tarih ve Saati : ",
+              "Transaction Date and Time : ",
               style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold),
             ),
             Opacity(
@@ -394,7 +394,7 @@ class CloseAppointmentState extends State<CloseAppointment> {
     var alertAppointment = AlertDialog(
         contentPadding: const EdgeInsets.fromLTRB(5.0, 50.0, 5.0, 50.0),
         title: Text(
-          "İşlem Özeti",
+          "Transaction Summary",
           style: TextStyle(fontWeight: FontWeight.bold),
         ),
         content: Container(
@@ -411,7 +411,7 @@ class CloseAppointmentState extends State<CloseAppointment> {
               Container(
                 child: FlatButton(
                   child: Text(
-                    "Tamam",
+                    "Ok",
                     style:
                         TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
                   ),
@@ -437,7 +437,7 @@ class CloseAppointmentState extends State<CloseAppointment> {
   _buildDoneButton() {
     return Container(
       child: RaisedButton(
-        child: Text("Tamamla"),
+        child: Text("Complete"),
         onPressed: () {
           if (hastaneSecildiMi &&
               bolumSecildiMi &&
@@ -452,11 +452,11 @@ class CloseAppointmentState extends State<CloseAppointment> {
                 doktor.randevular.add(saatTarihBirlesim);
                 _admin.kapatilanSaatler.add(saatTarihBirlesim);
               } else {
-                alrtHospital(context, "Bu seans dolu");
+                alrtHospital(context, "This session is full");
               }
             });
           } else {
-            alrtHospital(context, "Eksik bilgi var");
+            alrtHospital(context, "There is missing information");
           }
         },
       ),
