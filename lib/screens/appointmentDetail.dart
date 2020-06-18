@@ -10,7 +10,7 @@ class _AppointmentDetailState extends State<AppointmentDetail> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Randevu Detay"),
+        title: Text("Appointment Detail"),
       ),
       body: SingleChildScrollView(
         child: Column(
