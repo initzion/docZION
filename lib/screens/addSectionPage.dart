@@ -26,7 +26,7 @@ class AddSectionState extends State with ValidationMixin {
       backgroundColor: Colors.blueAccent,
       appBar: AppBar(
         title: Text(
-          "Bölüm Ekle",
+          "Add Section",
           style: TextStyle(fontSize: 25.0, fontWeight: FontWeight.bold),
         ),
         backgroundColor: Colors.greenAccent,
@@ -41,7 +41,7 @@ class AddSectionState extends State with ValidationMixin {
                 child: Column(
                   children: <Widget>[
                     RaisedButton(
-                      child: Text("Hastane Seçmek İçin Tıkla"),
+                      child: Text("Click to Choose Hospital"),
                       onPressed: () {
                         hospitalNavigator(BuildHospitalList());
                       },
@@ -71,7 +71,7 @@ class AddSectionState extends State with ValidationMixin {
   _yeniBolumAdi() {
     return TextFormField(
       decoration: InputDecoration(
-          labelText: "Yeni Bölüm Adini Girin:",
+          labelText: "Enter New Episode Name:",
           labelStyle: TextStyle(
               fontSize: 17.0,
               fontWeight: FontWeight.bold,
@@ -88,7 +88,7 @@ class AddSectionState extends State with ValidationMixin {
   _kaydetButonu() {
     return RaisedButton(
       child: Text(
-        "Yeni Bölüm Ekle",
+        "Add New Chapter",
         textDirection: TextDirection.ltr,
         style: TextStyle(fontSize: 20.0),
       ),
@@ -103,11 +103,11 @@ class AddSectionState extends State with ValidationMixin {
               AddService().saveSection(bolum, hastane);
               Navigator.pop(context, true);
             } else {
-              alrtHospital(context, "Aynı isimde bölüm ekleyemezsiniz");
+              alrtHospital(context, "You cannot add a section with the same name");
             }
           });
         } else {
-          alrtHospital(context, "Eksik bilgi var");
+          alrtHospital(context, "There is missing information");
         }
       },
     );
@@ -140,7 +140,7 @@ class AddSectionState extends State with ValidationMixin {
         child: Row(
           children: <Widget>[
             Text(
-              "Seçilen Hastane : ",
+              "Selected Hospital: ",
               style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold),
             ),
             Opacity(
@@ -160,7 +160,7 @@ class AddSectionState extends State with ValidationMixin {
   void alrtHospital(BuildContext context, String message) {
     var alertDoctor = AlertDialog(
       title: Text(
-        "Uyarı!",
+        "Warning!",
         style: TextStyle(fontWeight: FontWeight.bold),
       ),
       content: Text(message),
