@@ -45,7 +45,7 @@ class _DoctorHomePageState extends State<DoctorHomePage> {
     });
     return Scaffold(
         appBar: AppBar(
-          title: Text("Doktor Ana Sayfası"),
+          title: Text("Doctor Home"),
         ),
         body: SingleChildScrollView(
             child: Column(children: <Widget>[
@@ -102,7 +102,7 @@ class _DoctorHomePageState extends State<DoctorHomePage> {
                     width: 370.0,
                     height: 0.4,
                   ),
-                  _buildAttributeRow("T.C. Kimlik Numarası", _doktor.kimlikNo),
+                  _buildAttributeRow("T. C. Identification number", _doktor.kimlikNo),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: <Widget>[
@@ -114,7 +114,7 @@ class _DoctorHomePageState extends State<DoctorHomePage> {
                           width: 120.0,
                           height: 25.0,
                           child: Text(
-                            "Hastane",
+                            "Hospital",
                             style: TextStyle(
                                 fontSize: 15.0, fontWeight: FontWeight.bold),
                           ),
@@ -211,11 +211,11 @@ class _DoctorHomePageState extends State<DoctorHomePage> {
         splashColor: Colors.grey,
         highlightColor: Colors.white70,
         child: Text(
-          "Şifre Güncelle",
+          "Update Password",
           style: TextStyle(fontSize: 15.0, fontWeight: FontWeight.bold),
         ),
         onPressed: () {
-          basicNavigator(OnlyUpdatePassword(_doktor), "İşlem Tamamlandı");
+          basicNavigator(OnlyUpdatePassword(_doktor), "Process completed");
         },
       ),
     );
@@ -232,7 +232,7 @@ class _DoctorHomePageState extends State<DoctorHomePage> {
         splashColor: Colors.grey,
         highlightColor: Colors.white70,
         child: Text(
-          "Randevuları Görüntüle",
+          "View Appointments",
           style: TextStyle(fontSize: 15.0, fontWeight: FontWeight.bold),
         ),
         onPressed: () {
@@ -258,7 +258,7 @@ class _DoctorHomePageState extends State<DoctorHomePage> {
   void alrtHospital(BuildContext context, String message) {
     var alertDoctor = AlertDialog(
       title: Text(
-        "Bilgilendirme!",
+        "Information!",
         style: TextStyle(fontWeight: FontWeight.bold),
       ),
       content: Text(message),
@@ -282,7 +282,7 @@ class _DoctorHomePageState extends State<DoctorHomePage> {
         splashColor: Colors.grey,
         highlightColor: Colors.white70,
         child: Text(
-          "Güvenli Çıkış",
+          "Safe Exit",
           style: TextStyle(fontSize: 15.0, fontWeight: FontWeight.bold),
         ),
         onPressed: () {
