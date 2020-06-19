@@ -7,6 +7,7 @@ import 'package:fast_turtle_v2/screens/adminHomePage.dart';
 import 'package:fast_turtle_v2/screens/doctorHomePage.dart';
 import 'package:fast_turtle_v2/screens/registerPage.dart';
 import 'package:fast_turtle_v2/screens/userHomePage.dart';
+import 'package:fast_turtle_v2/screens/addDoctorPage.dart';
 import 'package:flutter/material.dart';
 import 'package:fast_turtle_v2/mixins/validation_mixin.dart';
 
@@ -217,6 +218,22 @@ class WelcomePageState extends State
           admin.password = value;
         }
       },
+    );
+  }
+  
+  Container registerButton() {
+    return Container(
+      child: FlatButton(
+        child: Text(
+          "Register",
+          style: TextStyle(fontSize: 15.0),
+        ),
+        textColor: Colors.black,
+        splashColor: Colors.cyanAccent,
+        onPressed: () {
+          basicNavigator(AddDoctor());
+        },
+      ),
     );
   }
 
